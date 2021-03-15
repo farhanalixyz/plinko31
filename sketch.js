@@ -12,18 +12,18 @@ function setup() {
   createCanvas(480,800);
   engine = Engine.create();
   world = engine.world;
-  land=new ground(width/2,height,width,20);
+  land=new Ground(width/2,height,width,20);
 
   for (var k=0;k <=width; k=k+80) {
-    divisions.push(new division(k,height=divisionHeight/2,10,divisionHeight));
+    divisions.push(new Division(k,height-divisionHeight/2,10,divisionHeight));
   }
   for (var j=40;j <=width; j=j+50)
   {
-    plinkos.push(new plinko(j,75));
+    plinkos.push(new Plinko(j,75));
   }
   for (var j=15;j <=width-10; j=j+50)
   {
-    plinkos.push(new plinko(j,175));
+    plinkos.push(new Plinko(j,175));
   }
   
 
@@ -37,7 +37,7 @@ function draw() {
     plinkos[i].display();
   }
   if(frameCount%60===0){
-    particles.push(new particles(random(100,700),10,10));
+    particles.push(new Particle(random(100,700),10,10));
   }
   for (var j=0;j < particles.length; j++)
   {
